@@ -1,0 +1,65 @@
+<h2 mat-dialog-title>{{ isEditMode ? 'Editar Usuario' : 'Crear Usuario' }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre" required>
+      <mat-error *ngIf="userForm.get('nombre')?.hasError('required')">
+        El nombre es requerido
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email" required>
+      <mat-error *ngIf="userForm.get('email')?.hasError('required')">
+        El email es requerido
+      </mat-error>
+      <mat-error *ngIf="userForm.get('email')?.hasError('email')">
+        Ingrese un email válido
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Perfil</mat-label>
+      <mat-select formControlName="idPerfil" required>
+        <mat-option *ngFor="let perfil of perfiles$ | async" [value]="perfil.idPerfil">
+          {{ perfil.nombre }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="userForm.get('idPerfil')?.hasError('required')">
+        El perfil es requerido
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Contraseña</mat-label>
+      <input matInput formControlName="contraseña" [type]="'password'" [required]="!isEditMode">
+      <mat-hint *ngIf="!isEditMode">Mínimo 8 caracteres con al menos un número y una letra</mat-hint>
+      <mat-error *ngIf="userForm.get('contraseña')?.hasError('required')">
+        La contraseña es requerida
+      </mat-error>
+      <mat-error *ngIf="userForm.get('contraseña')?.hasError('minlength')">
+        La contraseña debe tener al menos 8 caracteres
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width" *ngIf="!isEditMode || userForm.get('contraseña')?.value">
+      <mat-label>Confirmar Contraseña</mat-label>
+      <input matInput formControlName="confirmarContraseña" [type]="'password'">
+      <mat-error *ngIf="userForm.hasError('mismatch')">
+        Las contraseñas no coinciden
+      </mat-error>
+    </mat-form-field>
+
+    <input type="checkbox" formControlName="activo">
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!userForm.valid">
+    {{ isEditMode ? 'Actualizar' : 'Crear' }}
+  </button>
+</mat-dialog-actions>

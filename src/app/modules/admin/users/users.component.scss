@@ -1,0 +1,27 @@
+.users-container {
+  margin: 16px;
+  padding: 16px;
+}
+
+.add-button {
+  margin-left: auto;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 8px;
+}
+
+mat-icon {
+  vertical-align: middle;
+}

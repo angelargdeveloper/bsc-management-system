@@ -1,0 +1,51 @@
+<div class="dashboard-container">
+  <mat-toolbar color="primary" class="toolbar">
+    <button mat-icon-button (click)="toggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>BSC Management</span>
+    <span class="spacer"></span>
+    <span class="user-info">{{userInfo?.name}} ({{userInfo?.role}})</span>
+    <button mat-icon-button (click)="logout()" matTooltip="Cerrar sesión">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav [(opened)]="isSidenavOpen" mode="side" class="sidenav">
+      <mat-nav-list>
+        <!-- Menú para Administrador -->
+   
+          <a mat-list-item routerLink="/dashboard/users" routerLinkActive="active-link">
+            <mat-icon>people</mat-icon>
+            <span>Usuarios</span>
+          </a>
+
+
+        <!-- Menú para Personal Administrativo -->
+      
+          <a mat-list-item routerLink="/dashboard/products" routerLinkActive="active-link">
+            <mat-icon>inventory</mat-icon>
+            <span>Productos</span>
+          </a>
+          <a mat-list-item routerLink="/dashboard/reports" routerLinkActive="active-link">
+            <mat-icon>assessment</mat-icon>
+            <span>Reportes</span>
+          </a>
+        
+
+        <!-- Menú para Vendedores -->
+
+          <a mat-list-item routerLink="/dashboard/orders" routerLinkActive="active-link">
+            <mat-icon>shopping_cart</mat-icon>
+            <span>Pedidos</span>
+          </a>
+        
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="content">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
