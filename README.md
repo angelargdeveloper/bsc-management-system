@@ -62,7 +62,8 @@ dotnet run
 
 ## Diagrama del sistema
 
-![Diagrama Eraser.io](docs/diagrama.png)
+![Diagrama Eraser.io](<img width="2645" height="8489" alt="image" src="https://github.com/user-attachments/assets/1b36092b-cff4-47e6-b9f4-8c9aec421609" />
+)
 
 ---
 
