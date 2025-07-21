@@ -1,59 +1,71 @@
-# BscManagementFrontend
+# BSC Management System
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+Sistema de gestión para BSC: Inventario, usuarios, pedidos y reportes.
 
-## Development server
+## Tecnologías
 
-To start a local development server, run:
+- **Frontend:** Angular + Angular Material
+- **Backend:** .NET 6 (API RESTful, JWT)
+- **Base de datos:** SQL Server
 
-```bash
+## Estructura del Proyecto
+
+### Frontend (Angular)
+- Módulo de usuarios (CRUD)
+- Módulo de productos (CRUD)
+- Módulo de pedidos (en progreso)
+- Reportes de inventario y pedidos
+
+### Backend (ASP.NET Core .NET 6)
+```
+BSC.API/
+├── Controllers/
+│   ├── AuthController.cs (login JWT funcional)
+│   ├── UsuariosController.cs (CRUD completo)
+│   ├── ProductController.cs (CRUD completo)
+│   ├── PedidosController.cs (GET funcional, POST en progreso)
+│   ├── ReportesController.cs (GET para vistas SQL)
+│   └── ... (Otros controladores: AuditoriaProductosController, DetallePedidosController, PerfilesController)
+├── Models/
+│   ├── Usuario.cs
+│   ├── Producto.cs
+│   ├── Pedido.cs
+│   └── ... (todas las entidades: AuditoriaProducto, DetallePedido, Perfil)
+├── Data/
+│   └── BSCDbContext.cs (configurado con relaciones)
+└── appsettings.json (JWT y SQL Server)
+```
+
+## Instalación y ejecución
+
+### Frontend
+```sh
+cd bsc-management-frontend
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+### Backend
+```sh
+cd BSC.API
+dotnet restore
+dotnet run
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Funcionalidades
 
-```bash
-ng generate --help
-```
+- Autenticación JWT
+- Gestión de usuarios (CRUD)
+- Gestión de productos (CRUD)
+- Gestión y consulta de pedidos
+- Reportes de inventario y pedidos
 
-## Building
+## Diagrama del sistema
 
-To build the project run:
+![Diagrama Eraser.io](docs/diagrama.png)
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Licencia
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+MIT
