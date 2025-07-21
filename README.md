@@ -62,7 +62,7 @@ dotnet run
 
 ## Diagrama del sistema
 
-![ Diagrama ]( https://drive.google.com/file/d/1rgWLPHNrqaUs3a-5gGV3HuyyFGvvxZ4-/view?usp=sharing )
+https://drive.google.com/file/d/1rgWLPHNrqaUs3a-5gGV3HuyyFGvvxZ4-/view?usp=sharing
 
 ---
 
