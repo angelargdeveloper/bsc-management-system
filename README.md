@@ -62,7 +62,7 @@ dotnet run
 
 ## Diagrama del sistema
 
-![Diagrama Eraser.io](https://app.eraser.io/workspace/wXEA2VcQChnrOdxZnjPD?origin=share)
+![ Diagrama ]( https://drive.google.com/file/d/1rgWLPHNrqaUs3a-5gGV3HuyyFGvvxZ4-/view?usp=sharing )
 
 ---
 
